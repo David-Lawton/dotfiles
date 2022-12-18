@@ -1,0 +1,20 @@
+CP := msp430-elf-gcc
+CFLAGS := -O0 -Wall -g -mmcu=msp430fr6989
+OBJECTS := 
+LDFLAGS := 
+TARGETS := $(patsubst %.c, %, $(wildcard *.c))
+
+
+all: $(TARGETS) 
+
+%: %.c
+		$(CP) $(CFLAGS) $(LDFLAGS) $< -o $@ 
+	
+clean:
+	-rm -f $(TARGETS)
+
+erase:
+	mspdebug tilib -q "erase"
+
+
+

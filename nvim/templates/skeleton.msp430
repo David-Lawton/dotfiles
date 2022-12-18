@@ -1,0 +1,6 @@
+#include "/opt/ti/msp430-gcc-9.3.1.11_linux64/include/msp430fr6989.h"
+
+int main(){
+
+    return 0;
+}

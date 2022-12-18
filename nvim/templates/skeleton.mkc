@@ -1,0 +1,15 @@
+CC := gcc
+CFLAGS := -g -O2 
+OBJECTS :=
+LDFLAGS := 
+TARGETS := $(patsubst %.c, %, $(wildcard *.c))
+
+all: $(TARGETS) 
+
+%: %.c
+		$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@ 
+	
+clean:
+	-rm -f $(TARGETS)
+
+
