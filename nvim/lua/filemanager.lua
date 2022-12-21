@@ -25,11 +25,11 @@ fm_nvim.setup{
 			border_hl = "FloatBorder",
 
 			-- Floating Window Transparency (see ':h winblend')
-			blend     = 0,
+			blend     = 30,
 
 			-- Num from 0 - 1 for measurements
-			height    = 0.8,
-			width     = 0.8,
+			height    = 1.0,
+			width     = 1.0,
 
 			-- X and Y Axis of Window
 			x         = 0.5,
@@ -38,7 +38,7 @@ fm_nvim.setup{
 
 		split = {
 			-- Direction of split
-			direction = "topleft",
+			direction = "bot",
 
 			-- Size of split
 			size      = 24
