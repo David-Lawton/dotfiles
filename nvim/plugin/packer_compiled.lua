@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/home/david/.local/share/nvim/site/pack/packer/start/fm-nvim",
     url = "https://github.com/is0n/fm-nvim"
   },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/lualine.nvim",

@@ -1,0 +1,20 @@
+CPP := g++
+CPPFLAGS := -std=c++20 -O2 
+SRC := $(shell find . -name "*.cpp" | cut -c 3-| sed "s/\.cpp/\.o/g")
+LDFLAGS := -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
+TARGETS := Test
+
+SH :=$(shell find ./shaders/ -name "*.glsl" | cut -c 3- | sed "s/\.glsl/\.spv/g")
+
+$(TARGETS): $(SRC) $(SH)
+		$(CPP) $(CPPFLAGS) $(LDFLAGS) $(SRC) -o $@
+
+
+%.o: %.cpp
+		$(CPP) $(CPPFLAGS) $(LDFLAGS) -c $< -o $@
+
+%.spv: %.glsl 
+		glslc -o $@ $<
+
+clean:
+	-rm -f $(TARGETS) ./shaders/*.spv ./*.o ./systems/*.o
