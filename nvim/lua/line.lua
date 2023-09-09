@@ -130,6 +130,7 @@ ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
+  path = 1 -- 0 = filename, 1 = relative path, 2 = absolute path
 }
 
 ins_left { 'location' }

@@ -1,0 +1,26 @@
+CP := arm-none-eabi-gcc
+
+CFLAGS := -std=c11 -Wall -Wextra -Werror
+CFLAGS += -mthumb -mcpu=cortex-m4 -mfloat-abi=soft
+CFLAGS += -ffunction-sections -fdata-sections
+
+OBJECTS := 
+
+LDFLAGS := -T stm32f4.ld
+LDFLAGS += -nostartfiles
+LDFLAGS += -W1,--gc-sections
+LDFLAGS += -Llibopencm3/lib -lopencm3_stm32f4
+
+TARGETS := $(patsubst %.c, %, $(wildcard *.c))
+
+all: $(TARGETS).elf
+
+$(TARGETS).elf: $(TARGETS).o
+		$(CP) $(CFLAGS) $(LDFLAGS) -o $@ $^ 
+
+
+%.o: %.c
+		$(CP) $(CFLAGS) -c -o $@ $< 
+
+clean:
+  rm -f *.o *.elf

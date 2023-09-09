@@ -58,7 +58,7 @@ autocmd("FileType", {pattern = "javascript",
 --build
 autocmd("FileType", {pattern = "java",
   callback = function()
-    keymap("n", "<F4>", ":split<CR>:te javac %<CR>", opts)
+    keymap("n", "<F4>", ":! javac %<CR>", opts)
   end
 })
 --run
@@ -71,7 +71,7 @@ autocmd("FileType", {pattern = "java",
 --build
 autocmd("FileType", {pattern = { "c", "cpp", "cuda" },
   callback = function()
-    keymap("n", "<F4>", ":split<CR>:te make<CR>", opts)
+    keymap("n", "<F4>", ":!make<CR>", opts)
   end
 })
 --run
@@ -83,13 +83,13 @@ autocmd("FileType", {pattern = { "c", "cpp", "cuda" },
 --cmake init
 autocmd("FileType", {pattern = "cpp",
   callback = function()
-    keymap("n", "<F6>", ":split<CR>:te mkdir build && cmake -S $PWD -B $PWD/build && mv $PWD/build/compile_commands.json .<CR>", opts)
+    keymap("n", "<F6>", ":! mkdir build && cmake -S $PWD -B $PWD/build && mv $PWD/build/compile_commands.json .<CR>", opts)
   end
 })
 --cmake build
 autocmd("FileType", {pattern = "cpp",
   callback = function()
-    keymap("n", "<F7>", ":split<CR>:te cmake --build build/ --config Release<CR>", opts)
+    keymap("n", "<F7>", ":! cmake --build build/ --config Release<CR>", opts)
   end
 })
 --cmake run
@@ -109,7 +109,7 @@ autocmd("FileType", {pattern = "c",
 --build
 autocmd("FileType", {pattern = "rust",
   callback = function()
-    keymap("n", "<F4>", ":split<CR>:te cargo build<CR>", opts)
+    keymap("n", "<F4>", ":! cargo build<CR>", opts)
   end
 })
 --run
@@ -118,17 +118,38 @@ autocmd("FileType", {pattern = "rust",
     keymap("n", "<F5>", ":split<CR>:te cargo run<CR>", opts)
   end
 })
+--Verilog
+--build
+autocmd("FileType", {pattern = { "verilog" },
+  callback = function()
+    keymap("n", "<F4>", ":!iverilog -o %:r %<CR>", opts)
+  end
+})
+--run
+autocmd("FileType", {pattern = { "verilog"},
+  callback = function()
+    keymap("n", "<F5>", ":split<CR>:te vvp %:r<CR>", opts)
+  end
+})
 --GROFF
 --build
 autocmd("FileType", {pattern = "nroff",
   callback = function()
-    keymap("n", "<F4>", ":te groff -e -t -p -ms -T pdf % > %:r.pdf<CR>", opts)
+    keymap("n", "<F4>", ":! groff -e -t -p -ms -T pdf % > %:r.pdf<CR>", opts)
   end
 })
+
+--pdfroff build
+autocmd("FileType", {pattern = "nroff",
+  callback = function()
+    keymap("n", "<F6>", ":! pdfroff -e -t -p -ms % > %:r.pdf<CR>", opts)
+  end
+})
+
 --run
 autocmd("FileType", {pattern = "nroff",
   callback = function()
-    keymap("n", "<F5>", ":te zathura %:r.pdf<CR>", opts)
+    keymap("n", "<F5>", ":! zathura %:r.pdf &<CR>", opts)
   end
 })
 
