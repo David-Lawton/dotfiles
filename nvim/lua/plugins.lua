@@ -67,6 +67,8 @@ return packer.startup(function(use)
 
   --LSP
   use "neovim/nvim-lspconfig" -- enable LSP
+  --vim be good
+  use "ThePrimeagen/vim-be-good"
 
   --Treesitter
   use {

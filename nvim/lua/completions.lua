@@ -15,33 +15,32 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
-  Text = "",
+  Text = "󰉿",
   Method = "m",
-  Function = "",
-  Constructor = "",
+  Function = "󰊕",
+  Constructor = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  Variable = "󰀫",
+  Class = "󰠱",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
-  Value = "",
+  Value = "󰎠",
   Enum = "",
-  Keyword = "",
+  Keyword = "󰌋",
   Snippet = "",
-  Color = "",
-  File = "",
+  Color = "󰏘",
+  File = "󰈙",
   Reference = "",
-  Folder = "",
+  Folder = "󰉋",
   EnumMember = "",
-  Constant = "",
+  Constant = "󰏿",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "󰆕",
+  TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -117,6 +116,15 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
   },
+ sorting_strategy = function(entry1, entry2)
+   local kinds = {"Method", "Function"}
+   local prio1 = kinds[entry1.kind] and 1 or 2
+   local prio2 = kinds[entry2.kind] and 1 or 2
+   if prio1 ~= prio2 then
+     return prio1 > prio2
+   end
+   return entry1.offset > entry2.offset
+ end,
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,

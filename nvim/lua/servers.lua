@@ -2,6 +2,7 @@ local servers = {
   "clangd",
   "jedi_language_server",
   "rust_analyzer",
+  "bashls",
   "lua_ls",
   "zls",
 }

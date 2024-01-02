@@ -109,13 +109,45 @@ autocmd("FileType", {pattern = "c",
 --build
 autocmd("FileType", {pattern = "rust",
   callback = function()
-    keymap("n", "<F4>", ":! cargo build<CR>", opts)
+    keymap("n", "<F4>", ":! cd %:p:h && cargo build<CR>", opts)
   end
 })
 --run
 autocmd("FileType", {pattern = "rust",
   callback = function()
-    keymap("n", "<F5>", ":split<CR>:te cargo run<CR>", opts)
+    keymap("n", "<F5>", ":split<CR>:te cd %:p:h && cargo run<CR>", opts)
+  end
+})
+
+--run release
+autocmd("FileType", {pattern = "rust",
+  callback = function()
+    keymap("n", "<F6>", ":split<CR>:te cd %:p:h && cargo run --release<CR>", opts)
+  end
+})
+--ZIG
+--build
+autocmd("FileType", {pattern = "zig",
+  callback = function()
+    keymap("n", "<F4>", ":! zig build-exe %<CR>", opts)
+  end
+})
+--run
+autocmd("FileType", {pattern = "zig",
+  callback = function()
+    keymap("n", "<F5>", ":split<CR>:te ./%:r<CR>", opts)
+  end
+})
+--run
+autocmd("FileType", {pattern = "zig",
+  callback = function()
+    keymap("n", "<F6>", ":split<CR>:te zig run %<CR>", opts)
+  end
+})
+--test
+autocmd("FileType", {pattern = "zig",
+  callback = function()
+    keymap("n", "<F7>", ":! zig test %<CR>", opts)
   end
 })
 --Verilog
