@@ -26,7 +26,6 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":Ranger<cr>", opts)
-keymap("n", "<leader>f", ":FZF<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -211,3 +210,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
+
+-- Telescope keybinds --
+keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
+keymap('n', '<leader>fg', ':Telescope live_grep<CR>', opts)
+keymap('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+keymap('n', '<leader>fr', ':Telescope lsp_references<CR>', opts)
+keymap('n', '<leader>fs', ':Telescope lsp_workspace_symbols<CR>', opts)
