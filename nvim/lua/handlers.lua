@@ -47,17 +47,17 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   -- Open document symbol picker
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
+  --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
   -- Open workspace symbol picker
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>S", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+  --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>S", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
   -- Open document diagnostics picker
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>", opts)
   -- Rename symbol
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>n", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   -- Apply code action
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- Select symbol references
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>h", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+ -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>h", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- Show description
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>k", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   -- Go to definition

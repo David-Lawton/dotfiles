@@ -212,8 +212,8 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 
 -- Telescope keybinds --
-keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-keymap('n', '<leader>fg', ':Telescope live_grep<CR>', opts)
-keymap('n', '<leader>fb', ':Telescope buffers<CR>', opts)
-keymap('n', '<leader>fr', ':Telescope lsp_references<CR>', opts)
-keymap('n', '<leader>fs', ':Telescope lsp_workspace_symbols<CR>', opts)
+keymap('n', '<leader>f', ':Telescope find_files<CR>', opts)
+keymap('n', '<leader>g', ':Telescope live_grep<CR>', opts)
+keymap('n', '<leader>b', ':Telescope buffers<CR>', opts)
+keymap('n', '<leader>r', ':Telescope lsp_references<CR>', opts)
+keymap('n', '<leader>s', ':Telescope lsp_workspace_symbols<CR>', opts)
