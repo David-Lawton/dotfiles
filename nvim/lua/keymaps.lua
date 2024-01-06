@@ -98,10 +98,10 @@ autocmd("FileType", {pattern = "cpp",
   end
 })
 --C
---msp run
+--flash microcontroller
 autocmd("FileType", {pattern = "c",
   callback = function()
-    keymap("n", "<F6>", ':split<CR>:te mspdebug tilib -q "prog %:r"<CR>', opts)
+    keymap("n", "<F6>", ":!make flash<CR>", opts)
   end
 })
 --RUST

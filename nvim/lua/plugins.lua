@@ -60,6 +60,9 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+
+  -- Function Signature
+  use "ray-x/lsp_signature.nvim"
   
   --Telescope
   use "nvim-telescope/telescope.nvim"
@@ -74,10 +77,10 @@ return packer.startup(function(use)
   use "ThePrimeagen/vim-be-good"
 
   --Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+   use {
+     "nvim-treesitter/nvim-treesitter",
+     run = ":TSUpdate",
+   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
