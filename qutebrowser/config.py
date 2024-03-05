@@ -6,12 +6,21 @@ config.bind('K', 'tab-next')
 # bindings.commands = {"normal": {";w": "hint links spawn --detach mpv --force-window yes {hint-url}", "pt": "pin-tab"}}
 config.bind('pt', 'tab-pin')
 config.bind('M','hint links spawn --detach mpv --cache=yes --demuxer-max-bytes=300M --demuxer-max-back-bytes=100M {hint-url}')
+config.bind('<Ctrl-u>', 'fake-key <Shift+Home><Delete>', 'insert')
+config.bind('<Ctrl-d>', 'fake-key <Shift+End><Delete>', 'insert')
+config.bind('<Ctrl-x>', 'fake-key <Home><Shift+End><Delete>', 'insert')
+config.bind('<Ctrl-e>', 'edit-text', 'insert')
+
 
 c.colors.tabs.even.bg = 'grey'
 c.colors.tabs.odd.bg = 'darkgrey'
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.page = 'always'
 c.scrolling.smooth = True
+
+#tab behaviour
+c.tabs.new_position.related = "next"
+c.tabs.new_position.unrelated = "next"
 
 c.content.blocking.enabled = True
 c.content.blocking.method = 'both'
@@ -55,3 +64,4 @@ c.url.default_page = 'about:blank'
 
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 
+c.qt.args = ['disable-logging', 'disable-reading-from-canvas']
